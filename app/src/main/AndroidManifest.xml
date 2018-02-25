@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CeasarActivity"></activity>
+        <activity android:name=".CeasarActivity" android:label="Ceasar Cipher" />
+        <activity android:name=".TranspoActivity" android:label="Transposition Cipher"/>
     </application>
 
 </manifest>

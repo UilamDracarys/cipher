@@ -7,9 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class CeasarActivity extends AppCompatActivity implements View.OnClickListener{
+public class TranspoActivity extends AppCompatActivity implements View.OnClickListener {
 
-    String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     //Declare elements/widgets
     EditText etInput;
@@ -19,38 +18,36 @@ public class CeasarActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ceasar);
+        setContentView(R.layout.activity_transpo);
 
-        //Initialize widgets
         etInput = findViewById(R.id.etInput);
-        tvOutput = findViewById(R.id.tvCOutput);
+        tvOutput = findViewById(R.id.tvOutput);
         btnEncrypt = findViewById(R.id.btnEncrypt);
 
-        //Set button click listener
         btnEncrypt.setOnClickListener(this);
     }
 
     private String encrypt(String str) {
         int strLen = str.length();
         String newString = "";
-        String letter;
-        for (int i=0; i<strLen; i++) {
-            letter = String.valueOf(str.toUpperCase().charAt(i));
-            int alphaIdx = alphabet.indexOf(letter);
-            if (alphaIdx > 20) {
-                alphaIdx -= 20;
-            } else {
-                alphaIdx += 5;
-            }
-            newString += alphabet.charAt(alphaIdx);
+        String up = "";
+        String down = "";
+        for (int i=0;i<strLen;i++) {
+            up += str.charAt(i);
+            i += 1;
         }
+        for (int i=1;i<strLen;i++) {
+            down += str.charAt(i);
+            i += 1;
+        }
+        newString = up+down;
         return newString;
     }
 
     @Override
     public void onClick(View v) {
         if (v == findViewById(R.id.btnEncrypt)) {
-            tvOutput.setText(encrypt(etInput.getText().toString()));
+            tvOutput.setText(encrypt(etInput.getText().toString()).toUpperCase());
         }
     }
 }

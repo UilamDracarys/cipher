@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.masaya.cipher.MainActivity">
+    tools:context="com.masaya.cipher.MainActivity"
+    android:id="@+id/mainLayout">
 
     <Button
         android:id="@+id/btnCipher"
@@ -13,7 +13,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:onClick="showFarms"
+        android:onClick="showCeasar"
         android:layout_marginTop="44dp"
         android:text="Ceasar Cipher" />
 
@@ -23,7 +23,18 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnCipher"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
+        android:onClick="showTranspo"
         android:text="Transposition Cipher" />
+
+    <Button
+        android:id="@+id/btnPolyAlpha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnTranspo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:onClick="showPolyAlpha"
+        android:text="PolyAlphabetic Cipher" />
 
 </RelativeLayout>
